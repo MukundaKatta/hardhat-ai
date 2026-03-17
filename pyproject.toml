@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "hardhat-ai"
+version = "0.1.0"
+description = "Construction Safety Compliance Checker powered by AI"
+authors = [{ name = "Mukunda Katta" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "torchvision>=0.15",
+    "pydantic>=2.0",
+    "click>=8.0",
+    "rich>=13.0",
+    "Pillow>=10.0",
+]
+
+[project.scripts]
+hardhat = "hardhat.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
