@@ -1,55 +1,43 @@
-# Hardhat-AI
+# hardhat-ai
 
-Construction Safety Compliance Checker powered by AI.
+**HardHat AI — Safety Compliance Checker. Computer vision for construction site safety compliance.**
 
-Hardhat-AI uses computer vision and rule-based engines to detect PPE compliance,
-identify construction site hazards, and map findings to real OSHA standards with
-penalty calculations.
+![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-proprietary-red)
 
-## Features
-
-- **PPE Detection**: CNN-based detection of hard hats, vests, goggles, gloves, boots, and harnesses
-- **Hazard Identification**: Detects unguarded edges, missing guardrails, improper scaffolding, and electrical hazards
-- **OSHA Compliance Mapping**: Maps detections to 30+ real OSHA construction standards (29 CFR 1926)
-- **Penalty Calculation**: Computes fines using official OSHA penalty schedules
-- **Inspection Protocols**: Daily, weekly, and monthly safety check workflows
-- **Rich Reports**: Generate detailed inspection reports with violation summaries
-
-## Installation
-
+## Install
 ```bash
-pip install -e .
+pip install -e ".[dev]"
 ```
 
-## Usage
-
-```bash
-# Run a simulated inspection
-hardhat inspect --site "Building A" --type daily
-
-# Check an image for PPE compliance
-hardhat check-ppe --image site_photo.jpg
-
-# Scan for hazards
-hardhat scan-hazards --image site_photo.jpg
-
-# Generate a compliance report
-hardhat report --site "Building A" --output report.html
+## Quick Start
+```python
+from src.core import HardhatAi
+ instance = HardhatAi()
+r = instance.process(input="test")
 ```
 
-## OSHA Standards Coverage
+## CLI
+```bash
+python -m src status
+python -m src run --input "data"
+```
 
-Covers standards from 29 CFR 1926 including:
-- Subpart C: General Safety and Health Provisions
-- Subpart D: Occupational Health and Environmental Controls
-- Subpart E: Personal Protective and Life Saving Equipment
-- Subpart K: Electrical
-- Subpart L: Scaffolds
-- Subpart M: Fall Protection
-- Subpart P: Excavations
-- Subpart R: Steel Erection
-- Subpart X: Stairways and Ladders
+## API
+| Method | Description |
+|--------|-------------|
+| `process()` | Process |
+| `analyze()` | Analyze |
+| `transform()` | Transform |
+| `validate()` | Validate |
+| `export()` | Export |
+| `get_stats()` | Get stats |
+| `get_stats()` | Get stats |
+| `reset()` | Reset |
 
-## Author
+## Test
+```bash
+pytest tests/ -v
+```
 
-Mukunda Katta
+## License
+(c) 2026 Officethree Technologies. All Rights Reserved.
